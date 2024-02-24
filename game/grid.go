@@ -7,8 +7,8 @@ import (
 )
 
 type Grid struct {
-	nx, ny int32   // number of tiles
-	size   int32   // tile size, including line
+	nx, ny int32   // number of cells
+	size   int32   // cell size, including line
 	line   int32   // line thickness
 	xs, ys []int32 // line positions
 }
@@ -68,7 +68,7 @@ func (g *Grid) DrawGrid(color color.RGBA) {
 	}
 }
 
-func (g *Grid) DrawTile(x, y int, color color.RGBA) {
+func (g *Grid) DrawCell(x, y int, color color.RGBA) {
 	posX, posY := g.xs[x]+g.line, g.ys[y]+g.line
 	rectSize := g.size - g.line
 	rl.DrawRectangle(posX, posY, rectSize, rectSize, color)

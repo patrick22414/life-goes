@@ -36,12 +36,12 @@ func Start() {
 
 		rl.ClearBackground(rl.RayWhite)
 
-		grid.DrawGrid(rl.Beige)
+		grid.DrawGrid(rl.DarkGray)
 		for x := range NX {
 			for y := range NY {
 				v := board.I(x, y)
 				if v != 0 {
-					grid.DrawTile(x, y, rl.DarkGreen)
+					grid.DrawCell(x, y, rl.Beige)
 				}
 			}
 		}
@@ -71,12 +71,7 @@ func Start() {
 		}
 
 		if live {
-			raygui.Label(rl.Rectangle{
-				X:      4,
-				Y:      4 + 25 + 4,
-				Width:  100,
-				Height: 25,
-			}, "live")
+			raygui.Label(rl.Rectangle{X: 4, Y: 4 + 25 + 4, Width: 100, Height: 25}, "live")
 		}
 
 		if i = (i + 1) % (FPS / 5); i == 0 && live {
